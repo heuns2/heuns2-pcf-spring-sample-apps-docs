@@ -1,2 +1,2 @@
 # spring-boot-sample
-spring-boot-sample app
+spring-boot-sample app 
