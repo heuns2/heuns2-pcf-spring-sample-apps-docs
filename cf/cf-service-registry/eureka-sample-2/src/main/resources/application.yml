@@ -1,0 +1,24 @@
+---
+spring:
+  application:
+    name: test-boot-app-client2
+eureka:
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: https://service-registry-xxxxx-8330-xxxxx-a7ac-bb13cc602257.apps.{DOMAIN}/eureka/
+    enabled: true
+    oauth2:
+      accessTokenUri: https://uaa.sys.{DOMAIN}:443/oauth/token
+      clientId: xxxxxxxx
+      clientSecret: xxxxxxx
+
+      
+server:
+  port: 1234
+
+
+      
+      
+      
+ 
