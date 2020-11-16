@@ -1,0 +1,10 @@
+---
+spring:
+  profiles: dev
+  application:
+    name: test-boot-app
+
+config:
+  profile: dev
+  msg: hello dev
+  
