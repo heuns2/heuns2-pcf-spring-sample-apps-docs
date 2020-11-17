@@ -1,0 +1,10 @@
+---
+spring:
+  profiles: staging
+  application:
+    name: test-boot-app
+
+config:
+  profile: staging
+  msg: hello staging
+  

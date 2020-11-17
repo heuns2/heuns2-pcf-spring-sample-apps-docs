@@ -1,0 +1,10 @@
+---
+applications:
+- name: my-app
+  memory: 1G
+  buildpack: java_buildpack_offline
+  path: ./target/test-boot-0.0.1-SNAPSHOT.jar
+  services:
+    - config-service-test
+  env:
+    SPRING_PROFILES_ACTIVE: dev

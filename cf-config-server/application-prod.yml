@@ -1,0 +1,10 @@
+---
+spring:
+  profiles: prod
+  application:
+    name: test-boot-app
+
+config:
+  profile: prod
+  msg: hello pord
+  

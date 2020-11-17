@@ -1,9 +1,0 @@
----
-spring:
-  profiles: cloud
-  application:
-    name: cloud-boot-app
-
-cf.endpoint: ${vcap.services.cf_api.credentials.endpoint}
-cf.admin: ${vcap.services.cf_api.credentials.user}
-cf.admin_secret: ${vcap.services.cf_api.credentials.pwd}
