@@ -7,6 +7,25 @@
 
 ## 1. Gemfire Java Source Code 예시
 
+- pom.xml
+
+```
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-geode</artifactId>
+</dependency>
+<dependency>
+    <groupId>io.pivotal.spring.cloud</groupId>
+    <artifactId>spring-cloud-gemfire-spring-connector</artifactId>
+    <version>1.2.0.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>io.pivotal.spring.cloud</groupId>
+    <artifactId>spring-cloud-gemfire-cloudfoundry-connector</artifactId>
+    <version>1.2.0.RELEASE</version>
+</dependency>
+```
+
 - Gemfire 연동 부분
 ```
 @Value("${pcc.service-id:cache-service}")
