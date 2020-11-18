@@ -2,7 +2,6 @@
 
 - Pivotal Cloud Cache(Gemfire, Geode)  Server와 연동하는 Java Client App에 대해 주요 속성을 설명합니다.
 - Gemfire Java Client를 생성 시 Region 구조를 아래와 같은 형태로 생성 할 수 있습니다, 해당 Option을 사용함으로써 Local - PCC Server간의 Proxy를 결정이 되는 것 같으며 옵션에서도 Eviction, Overflow와 같은 속성을 지정 할 수 있습니다.
-- 개발자들의 Local에 Cache를 저장하고 있다는 말도 해당 속성 중 1개를 사용 한 것으로 추측됩니다. ex) CACHING_PROXY
 - 특이 사항으로는 Client를 통해서는 실제 Gemfire Server에 대한 몇가지 요청은 사용되지 못하며, 해당 기능을 사용 해야 할 경우 gemfire function 기능을 통해 내부에서 gfsh 명령어를 통해 사용 해야 합니다. 예시로는 Cache Server에 특정 Partition Region의 Replica Data를 확인하는 Interface를 구현하게 되어 실행 시킬 경우 Not Found가 발생합니다.
 
 
@@ -97,3 +96,6 @@ public class CacheService implements CacheImpl {
 
 ## 2. 특이사항
 - 기본적으로 Replica 구성과 Redundant구성으로 인하여 HA 구성은 가능하지만 VM 장애로 인하여 전체 Cache Server가 내려갈 가 장애가 발생하여 모든 Region, Data가 사라질 경우를 생각하여 예외(DB에서 처리 등)를 처리 해야 할 가능성이 있습니다.
+
+
+
