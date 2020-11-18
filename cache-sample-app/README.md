@@ -94,8 +94,8 @@ public class CacheService implements CacheImpl {
 	- ClientRegionShortcut.LOCAL_PERSISTENT_OVERFLOW: Local을 사용하며 모든 자바 Region 객체가 재생성 되더라도 entry 값을 사용 할 수 있으며 Java VM Memory이 Memory 부족을 실행하고 있음을 감지하면 entry 값을 Disk로 이동 시킨다.
 
 
-## 2. 특이사항
-- 기본적으로 Replica 구성과 Redundant구성으로 인하여 HA 구성은 가능하지만 VM 장애로 인하여 전체 Cache Server가 내려갈 가 장애가 발생하여 모든 Region, Data가 사라질 경우를 생각하여 예외(DB에서 처리 등)를 처리 해야 할 가능성이 있습니다.
-
+## 2. 운영간 특이 사항
+- 기본적으로 Replica 구성과 Redundant구성으로 인하여 HA 구성은 가능하지만 VM 장애로 인하여 전체 Cache Server가 내려가 장애가 발생하여 모든 Region, Data가 사라질 경우를 생각하여 예외(DB에서 처리 등)를 처리 해야 할 가능성이 있습니다.
+- Client의 Proxy의 종류에 따라 Container의 JVM 영역이 늘어 날 수 있음으로 적절한 Expried 설정이 필요 할 가능성이 있습니다.
 
 
