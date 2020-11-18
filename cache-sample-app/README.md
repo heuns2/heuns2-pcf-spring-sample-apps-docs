@@ -97,5 +97,5 @@ public class CacheService implements CacheImpl {
 ## 2. 운영간 특이 사항
 - 기본적으로 Replica 구성과 Redundant구성으로 인하여 HA 구성은 가능하지만 VM 장애로 인하여 전체 Cache Server가 내려가 장애가 발생하여 모든 Region, Data가 사라질 경우를 생각하여 예외(DB에서 처리 등)를 처리 해야 할 가능성이 있습니다.
 - Client의 Proxy의 종류에 따라 Container의 JVM 영역이 늘어 날 수 있음으로 적절한 Expried 설정이 필요 할 가능성이 있습니다.
-
+- 위처럼 JVM 사용률이 증가함에 따라 공통 Service로 생성하여 Open API, Swagger를 통하여 동적으로 모든 Cache Region을 관리 할 필요가 있을 수 있습니다. 
 
