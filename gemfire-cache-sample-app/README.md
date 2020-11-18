@@ -32,7 +32,7 @@
 public String PCC_SERVICE_ID;
 
 @Bean(name = "testRegion")
-ClientRegionFactoryBean m2bRegion(@Autowired ClientCache gemfireCache) {
+ClientRegionFactoryBean region(@Autowired ClientCache gemfireCache) {
     return getClientRegionFactoryBean(gemfireCache, "testRegion");
 }
 
