@@ -60,5 +60,5 @@ $ cf push {my-app} -f mainifest.yml
 	- http://test-app-metrics.apps.{DOMAIN}/actuator
 	- http://test-app-metrics.apps.{DOMAIN}/actuator/prometheus
 
-![micrometer](./images/micrometer.PNG)
+![micrometer](./images/micrometer.png)
 
