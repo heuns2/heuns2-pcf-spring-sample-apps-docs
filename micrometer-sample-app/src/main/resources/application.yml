@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: hikari-sample-app-1
+    admin:
+      enabled: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: ${url}
+    username: ${user_name}
+    password: ${user_password}
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 1
+      driver-class-name: com.mysql.jdbc.Driver
+    jdbc-url: ${jdbc-url}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        jdbc:
+          fetch_size: 250
+        show_sql: true
+        use_sql_comments: false
+        format_sql: true
+        enable_lazy_load_no_trans: true
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: health, info
+        
+        
