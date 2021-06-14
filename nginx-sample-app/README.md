@@ -1,3 +1,5 @@
+- nginx config를 사용하여 sample app 배포
+
 ```
 # git clone
 $ git clone https://github.com/heuns2/heuns2-pcf-spring-sample-apps-docs.git
