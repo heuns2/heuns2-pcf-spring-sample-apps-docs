@@ -1,4 +1,4 @@
-package gateway;
+package test.kuberix.gateway;
 
 import java.util.List;
 
@@ -13,31 +13,28 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-
-@EnableDiscoveryClient
-@RestController
 @SpringBootApplication
-public class Application {
+@EnableDiscoveryClient
+public class GatewayApplication {
 
-    public static void main(String[] args) {
-    	System.setProperty("reactor.netty.http.server.accessLogEnabled", "true");
-        SpringApplication.run(Application.class, args);
-    }
-    
-    @Bean
-    public RouteLocator myRoutes(RouteLocatorBuilder builder) {
-        return builder.routes()
-            .route(p -> p
-                .path("/get")
-                .uri("http://www.naver.com"))
+	public static void main(String[] args) {
+		System.setProperty("reactor.netty.http.server.accessLogEnabled", "true");
+		SpringApplication.run(GatewayApplication.class, args);
+	}
+	
+	@Bean
+	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
+	    return builder.routes()
+	        .route(p -> p
+	            .path("/get")
+	            .uri("https://naver.com"))
             .route(p -> p
                     .path("/jenkins")
                     .uri("lb://jenkins"))
-            .build();
-    }
-    
+	        .build();
+	}
+	
 	@Autowired
 	private DiscoveryClient discoveryClient;
 
