@@ -38,6 +38,9 @@ public class GatewayApplication {
             .route(p -> p
                     .path("/jenkins1/**")
                     .uri("lb://JENKINS"))
+            .route(p -> p
+                    .path("/test/**")
+                    .uri("lb://9a23134e-3dba-4910-b605-cbe84537fcff"))
 	        .build();
 	}
 	
