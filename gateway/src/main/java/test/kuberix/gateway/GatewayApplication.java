@@ -10,12 +10,14 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableFeignClients
 public class GatewayApplication {
 	
 	@Autowired
@@ -38,6 +40,9 @@ public class GatewayApplication {
             .route(p -> p
                     .path("/jenkins1/**")
                     .uri("lb://JENKINS"))
+            .route(p -> p
+                    .path("/test/**")
+                    .uri("lb://9a23134e-3dba-4910-b605-cbe84537fcff"))
             .route(p -> p
                     .path("/test/**")
                     .uri("lb://9a23134e-3dba-4910-b605-cbe84537fcff"))
