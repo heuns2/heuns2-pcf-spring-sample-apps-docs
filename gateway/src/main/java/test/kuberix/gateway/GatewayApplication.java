@@ -11,13 +11,16 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
 @EnableDiscoveryClient
 public class GatewayApplication {
-
+	
+	@Autowired
+	private DiscoveryClient discoveryClient;
+	
 	public static void main(String[] args) {
 		System.setProperty("reactor.netty.http.server.accessLogEnabled", "true");
 		SpringApplication.run(GatewayApplication.class, args);
@@ -30,17 +33,26 @@ public class GatewayApplication {
 	            .path("/get")
 	            .uri("https://naver.com"))
             .route(p -> p
-                    .path("/jenkins")
+                    .path("/jenkins/**")
                     .uri("lb://jenkins"))
+            .route(p -> p
+                    .path("/jenkins1/**")
+                    .uri("lb://JENKINS"))
 	        .build();
 	}
 	
-	@Autowired
-	private DiscoveryClient discoveryClient;
 
-	@RequestMapping("/service-instances/{applicationName}")
+	
+	@GetMapping("/service-instances")
+	public List<String> list() {
+		System.out.println("===================================Logging TEST===================================");
+		return this.discoveryClient.getServices();
+	}
+
+	@GetMapping("/service-instances/{applicationName}")
 	public List<ServiceInstance> serviceInstancesByApplicationName(
 			@PathVariable String applicationName) {
+		System.out.println("===================================Logging TEST===================================");
 		return this.discoveryClient.getInstances(applicationName);
 	}
 	
