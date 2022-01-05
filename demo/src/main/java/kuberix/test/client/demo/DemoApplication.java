@@ -19,6 +19,10 @@ public class DemoApplication {
 	
 	@Autowired
 	private DiscoveryClient discoveryClient;
+	
+	@Autowired
+	private ServiceRegisrtyInterface jenkins;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
@@ -35,4 +39,10 @@ public class DemoApplication {
 		System.out.println("===================================Logging TEST===================================");
 		return this.discoveryClient.getInstances(applicationName);
 	}
+	
+	@GetMapping("/getJenkins")
+	public String getClient2(){
+		return jenkins.getClient2();
+	}
+
 }
