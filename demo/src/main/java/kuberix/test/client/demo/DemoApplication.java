@@ -42,7 +42,7 @@ public class DemoApplication {
 	
 	@GetMapping("/getJenkins")
 	public String getClient2(){
-		return jenkins.getClient2();
+		return jenkins.getClient();
 	}
 
 }

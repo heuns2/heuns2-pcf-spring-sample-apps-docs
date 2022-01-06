@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "jenkins")
 public interface ServiceRegisrtyInterface {
 	 @RequestMapping(method = {RequestMethod.GET},path = {"/"})
-	 String getClient2();
+	 String getClient();
 }
