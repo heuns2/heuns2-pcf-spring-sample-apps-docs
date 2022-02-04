@@ -5,7 +5,7 @@
 
 ### 1.1. cf push API 확인
 - cf push 명령어가 실행 되게 되면 크게 아래와 같은 API를 호출하게 됩니다.
-- API 호출 순서는 Cloud Controller 버전에 따라 상이 할 수 있습니다.
+- API 호출 순서는 Cloud Controller 버전에 따라 상이 할 수 있습니다. 
 
 ```
 1) GET api.sys.{DOMAIN} # API Domain을 호출하여 PAS의 HTTP Endpoint 확인 (uaa, log, doppler, networking 등)
